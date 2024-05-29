@@ -8,6 +8,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <otus.gbp.view.components.Rating
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:rating_count="5"
+        app:rating_value="2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <otus.gbp.view.components.LikeDislike
         android:id="@+id/like_dislike1"
         android:layout_width="match_parent"

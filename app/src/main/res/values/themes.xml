@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.View2" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="like_dislike_panelStyle">@style/like_dislike_panel.Grey</item>
+        <item name="ratingStyle">@style/rating</item>
     </style>
 
     <style name="Theme.View2" parent="Base.Theme.View2" />

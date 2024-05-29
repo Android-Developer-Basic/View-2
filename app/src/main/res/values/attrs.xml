@@ -2,9 +2,18 @@
 <resources>
     <!-- Имя атрибута стиля компонента в теме -->
     <attr name="like_dislike_panelStyle" format="reference"/>
+    <attr name="ratingStyle" format="reference"/>
 
     <!-- Собственные атрибуты для компонента -->
     <declare-styleable name="LikeDislike">
         <attr name="like_dislike_count" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="Rating">
+        <attr name="rating_count" format="integer"/>
+        <attr name="rating_value" format="integer"/>
+        <attr name="rating_stroke_width" format="dimension"/>
+        <attr name="rating_empty_color" format="color"/>
+        <attr name="rating_filled_color" format="color"/>
     </declare-styleable>
 </resources>

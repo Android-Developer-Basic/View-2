@@ -13,4 +13,12 @@
     <style name="like_dislike_panel.Grey">
         <item name="android:background">@color/light_grey</item>
     </style>
+
+    <style name="rating">
+        <item name="rating_count">5</item>
+        <item name="rating_value">3</item>
+        <item name="rating_stroke_width">5dp</item>
+        <item name="rating_empty_color">@color/green</item>
+        <item name="rating_filled_color">@color/red</item>
+    </style>
 </resources>
