@@ -12,6 +12,7 @@
         android:id="@+id/like_dislike"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/like_dislike_panel.Grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
