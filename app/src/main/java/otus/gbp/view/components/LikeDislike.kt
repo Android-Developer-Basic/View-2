@@ -25,7 +25,7 @@ class LikeDislike @JvmOverloads constructor(
     init {
         binding = LikeDislikeBinding.inflate(LayoutInflater.from(context), this)
         initPanel(attrs, defStyleAttr)
-        initLikes()
+        initLikes(attrs, defStyleAttr)
     }
 
     private fun initPanel(attrs: AttributeSet?, defStyleAttr: Int) {
@@ -58,13 +58,16 @@ class LikeDislike @JvmOverloads constructor(
         }
     }
 
-    private fun initLikes() = with(binding) {
-        numLikes.text = likes.toString()
-        likeButton.setOnClickListener {
-            numLikes.text = (++likes).toString()
-        }
-        dislikeButton.setOnClickListener {
-            numLikes.text = (--likes).coerceAtLeast(0).toString()
+    private fun initLikes(attrs: AttributeSet?, defStyleAttr: Int) = with(binding) {
+        context.withStyledAttributes(attrs, R.styleable.LikeDislike, defStyleAttr, R.style.like_dislike_panel) {
+            likes = getInt(R.styleable.LikeDislike_like_dislike_count, 0)
+            numLikes.text = likes.toString()
+            likeButton.setOnClickListener {
+                numLikes.text = (++likes).toString()
+            }
+            dislikeButton.setOnClickListener {
+                numLikes.text = (--likes).coerceAtLeast(0).toString()
+            }
         }
     }
 }
