@@ -5,11 +5,13 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.res.getColorOrThrow
 import androidx.core.content.res.getIntOrThrow
 import androidx.core.content.withStyledAttributes
 import otus.gbp.view.R
+import kotlin.math.ceil
 
 class Rating@JvmOverloads constructor(
     context: Context,
@@ -68,6 +70,22 @@ class Rating@JvmOverloads constructor(
             resolveSize(desiredWidth, widthMeasureSpec),
             resolveSize(desiredHeight, heightMeasureSpec)
         )
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        super.onTouchEvent(event);
+
+        when (event!!.action) {
+            MotionEvent.ACTION_DOWN -> {
+                val relativeTouch = ceil(event.x / (width/count)).toInt()
+                Log.i(TAG, "Touched at: ${event.x}")
+                Log.i(TAG, "Touched at relative: $relativeTouch")
+                value = relativeTouch
+                invalidate()
+                return true
+            }
+        }
+        return false
     }
 
     companion object {
