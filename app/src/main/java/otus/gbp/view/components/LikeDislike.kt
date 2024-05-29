@@ -20,7 +20,12 @@ class LikeDislike @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.like_dislike_panelStyle
 ) : LinearLayoutCompat(context, attrs, defStyleAttr) {
     private val binding: LikeDislikeBinding
-    private var likes = 0
+
+    var likes = 0
+        set(value) {
+            field = value
+            binding.numLikes.text = value.toString()
+        }
 
     init {
         binding = LikeDislikeBinding.inflate(LayoutInflater.from(context), this)
