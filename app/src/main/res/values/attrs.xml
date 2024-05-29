@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Имя атрибута стиля компонента в теме -->
+    <attr name="like_dislike_panelStyle" format="reference"/>
+</resources>

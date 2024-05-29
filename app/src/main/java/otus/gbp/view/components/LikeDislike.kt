@@ -10,13 +10,14 @@ import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.content.withStyledAttributes
 import androidx.core.util.TypedValueCompat.dpToPx
 import androidx.core.util.TypedValueCompat.pxToDp
+import com.google.android.material.button.MaterialButton
 import otus.gbp.view.R
 import otus.gbp.view.databinding.LikeDislikeBinding
 
 class LikeDislike @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = R.attr.like_dislike_panelStyle
 ) : LinearLayoutCompat(context, attrs, defStyleAttr) {
     private val binding: LikeDislikeBinding
     private var likes = 0
