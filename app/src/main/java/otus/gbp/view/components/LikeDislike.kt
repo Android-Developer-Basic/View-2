@@ -1,6 +1,7 @@
 package otus.gbp.view.components
 
 import android.content.Context
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.Gravity.CENTER
 import android.view.Gravity.CENTER_HORIZONTAL
@@ -11,6 +12,7 @@ import androidx.core.content.withStyledAttributes
 import androidx.core.util.TypedValueCompat.dpToPx
 import androidx.core.util.TypedValueCompat.pxToDp
 import com.google.android.material.button.MaterialButton
+import kotlinx.parcelize.Parcelize
 import otus.gbp.view.R
 import otus.gbp.view.databinding.LikeDislikeBinding
 
@@ -28,9 +30,25 @@ class LikeDislike @JvmOverloads constructor(
         }
 
     init {
+        isSaveEnabled = true;
         binding = LikeDislikeBinding.inflate(LayoutInflater.from(context), this)
         initPanel(attrs, defStyleAttr)
         initLikes(attrs, defStyleAttr)
+    }
+
+    @Parcelize
+    private data class LikeDislikeState(val superState: Parcelable?, val likes: Int): Parcelable
+
+    override fun onSaveInstanceState(): Parcelable {
+        return LikeDislikeState(super.onSaveInstanceState(), likes)
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        if (state is LikeDislikeState) {
+            super.onRestoreInstanceState(state.superState)
+            likes = state.likes
+            binding.numLikes.text = likes.toString()
+        }
     }
 
     private fun initPanel(attrs: AttributeSet?, defStyleAttr: Int) {
